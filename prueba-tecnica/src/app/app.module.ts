@@ -9,6 +9,10 @@ import { AppComponent } from './app.component';
 // Routing
 import { routing, appRoutingProviders } from './app.routing';
 
+// Componentes
+import { HomeComponent } from './components/home/home.component'
+
+
 // Componentes alumno
 import { AgregarAlumnoComponent } from './components/alumno/agregar/agregar.component';
 import { ListarAlumnosComponent } from './components/alumno/listar/listar.component';
@@ -23,11 +27,11 @@ import { AgregarProfesorComponent } from './components/profesor/agregar/agregar.
 
 
 // Componentes materia
-
 import { ListarMateriasComponent } from './components/materia/listar/listar.component';
 import { EliminarMateriaComponent } from './components/materia/eliminar/eliminar.component'
 import { EditarMateriaComponent } from './components/materia/editar/editar.component'
-import { AgregarMateriaComponent } from './components/materia/agregar/agregar.component'
+import { AgregarMateriaComponent } from './components/materia/agregar/agregar.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +47,8 @@ import { AgregarMateriaComponent } from './components/materia/agregar/agregar.co
     ListarMateriasComponent,
     AgregarMateriaComponent,
     EditarMateriaComponent,
-    EliminarMateriaComponent
+    EliminarMateriaComponent,
+    HomeComponent
 
   ],
   imports: [
