@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-editar',
   templateUrl: './editar.component.html'
 })
-export class EditarAlumnoComponent implements OnInit {
+export class EditarProfesorComponent implements OnInit {
 
   constructor() { }
 

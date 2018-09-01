@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-agregar',
-  templateUrl: './agregar.component.html'
+  templateUrl: './agregar.component.html',
+  styles: []
 })
-export class AgregarAlumnoComponent implements OnInit {
+export class AgregarMateriaComponent implements OnInit {
 
   constructor() { }
 

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-agregar',
   templateUrl: './agregar.component.html'
 })
-export class AgregarAlumnoComponent implements OnInit {
+export class AgregarProfesorComponent implements OnInit {
 
   constructor() { }
 
