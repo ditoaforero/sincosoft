@@ -1,3 +1,42 @@
-<p>
-  listar alumnos works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Alumnos</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <thead class="thead-default">
+          <tr>
+            <th>Nombre</th>
+            <th>Primer apellido</th>
+            <th>Segundo apellido</th>
+            <th>Curso</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alumno of alumnos; let i=index">
+            <td>{{alumno.nombre}}</td>
+            <td>{{alumno.primerApellido}}</td>
+            <td>{{alumno.segundoApellido}}</td>
+            <td>{{alumno.curso}}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-primary">Editar</button>
+                <button type="button" class="btn btn-outline-danger">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4">
+        <button type="button" [routerLink]="['/agregarAlumno']" class="btn btn btn-primary">Agregar nuevo alumno</button>
+    </div>
+  </div>
+</div>
