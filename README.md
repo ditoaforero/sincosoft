@@ -1,0 +1,2 @@
+# sincosoft
+Prueba tecnica sincosoft
