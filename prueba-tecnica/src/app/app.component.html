@@ -1,6 +1,6 @@
-<!--
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" [routerLink]="['/home']">{{ title }}!</a>
+  <!--<a class="navbar-brand" [routerLink]="['/home']">{{ title }}!</a>-->
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -9,27 +9,23 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/cuidadores']" [routerLinkActive]="['active']">
-          Cuidadores
+        <a class="nav-link" [routerLink]="['/alumnos']" [routerLinkActive]="['active']">
+          Alumnos
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/animales']" [routerLinkActive]="['active']">Animales</a>
+        <a class="nav-link" [routerLink]="['/materias']" [routerLinkActive]="['active']">Materias</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/tienda']" [routerLinkActive]="['active']">Tienda</a>
+        <a class="nav-link" [routerLink]="['/profesores']" [routerLinkActive]="['active']">Profesores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/contacto']" [routerLinkActive]="['active']">Contacto</a>
+        <a class="nav-link" [routerLink]="['/reporte']" [routerLinkActive]="['active']">Reporte Final</a>
       </li>
     </ul>
   </div>
 </nav>
 
--->
-<h1>Bienvenidos</h1>
-<hr>
-
-<div class="col-lg-12">
+<div class="col-lg-12 mt-3">
   <router-outlet></router-outlet>
 </div>
