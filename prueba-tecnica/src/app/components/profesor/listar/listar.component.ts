@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Profesor } from '../../../models/profesor';
+import { ProfesorService } from '../../../services/profesor.service';
 
 @Component({
   selector: 'app-listar',
@@ -6,24 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarProfesoresComponent implements OnInit {
 
-  profesores = [
-    {
-      tipoDocumento: 'CC',
-      numeroDocumento: 101010,
-      nombre:'Teo',
-      primerApellido:'Rodriguez',
-      segundoApellido:'Romero',
-    },
-    {
-      nombre:'Romulo',
-      primerApellido:'Gonzales',
-      segundoApellido:'Pataquiva',
-    },
-  ];
+  profesores: Array<Profesor>;
 
-  constructor() { }
+  busqueda: string;
+
+  constructor(
+    private _profesorService: ProfesorService
+  ) { }
 
   ngOnInit() {
+    this.profesores = this._profesorService.obtenerListado();
+  }
+
+  eliminarProfesor(id: string) {
+    this._profesorService.eliminarProfesor(id);
+    this.profesores = this._profesorService.obtenerListado();
   }
 
 }

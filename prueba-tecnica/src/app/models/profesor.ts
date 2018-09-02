@@ -2,8 +2,9 @@ import { Materia } from "./materia";
 
 export class Profesor {
 
+    id:string=null;
     tipoDocumento:string=null;
-    numeroDocumento:number=0;
+    numeroDocumento:number=null;
     nombre:string=null;
     primerApellido:string=null;
     segundoApellido:string=null;

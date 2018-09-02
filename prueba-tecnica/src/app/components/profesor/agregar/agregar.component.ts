@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Profesor } from '../../../models/profesor';
+import { ProfesorService } from '../../../services/profesor.service';
+import { Router } from '../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-agregar',
@@ -6,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarProfesorComponent implements OnInit {
 
-  constructor() { }
+
+  profesor:Profesor = new Profesor();
+
+  constructor(
+    private _profesorService: ProfesorService,
+    private _router: Router
+  ) { }
 
   ngOnInit() {
+
   }
 
+  agregar() {
+    
+    this._profesorService.agregar(this.profesor);
+    this.profesor = new Profesor();
+  }
 }
