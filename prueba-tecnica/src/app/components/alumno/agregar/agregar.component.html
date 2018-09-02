@@ -8,41 +8,45 @@
   <div class="row">
     <div class="col">
       <form (ngSubmit)="agregar()" class="needs-validation" #forma="ngForm" novalidate>
+
         <div class="form-group row">
-          <label class="col-3 col-sm-2 col-form-label">Tipo de documento</label>
+          <label class="col-3 col-sm-2 col-form-label" for="tipoDocumento">Tipo de documento</label>
           <div class="col-9 col-sm-10">
-            <input class="form-control" [ngClass]="{'is-invalid': tipoDocumento.errors && (tipoDocumento.dirty || tipoDocumento.touched)}"
-              type="text" name="tipoDocumento" [(ngModel)]="alumno.tipoDocumento" required #tipoDocumento="ngModel">
+            <select class="form-control" [ngClass]="{'is-invalid': tipoDocumento.errors && (tipoDocumento.dirty || tipoDocumento.touched)}"
+              name="tipoDocumento" [(ngModel)]="alumno.tipoDocumento" id="tipoDocumento" required #tipoDocumento="ngModel">
+              <option value="TI">Tarjeta de Identidad</option>
+              <option value="CC">Cédula de ciudadania</option>
+            </select>
             <div *ngIf="tipoDocumento.errors?.required" class="invalid-feedback">
               Este campo es requerido
             </div>
           </div>
         </div>
         <div class="form-group row">
-            <label class="col-3 col-sm-2 col-form-label">Número de documento</label>
-            <div class="col-9 col-sm-10">
-              <input class="form-control" [ngClass]="{'is-invalid': numeroDocumento.errors && (numeroDocumento.dirty || numeroDocumento.touched)}"
-                type="text" name="numeroDocumento" [(ngModel)]="alumno.numeroDocumento" required #numeroDocumento="ngModel">
-              <div *ngIf="numeroDocumento.errors?.required" class="invalid-feedback">
-                Este campo es requerido
-              </div>
+          <label class="col-3 col-sm-2 col-form-label" for="numeroDocumento">Número de documento</label>
+          <div class="col-9 col-sm-10">
+            <input class="form-control" [ngClass]="{'is-invalid': numeroDocumento.errors && (numeroDocumento.dirty || numeroDocumento.touched)}"
+              type="text" id="numeroDocumento" name="numeroDocumento" [(ngModel)]="alumno.numeroDocumento" required #numeroDocumento="ngModel">
+            <div *ngIf="numeroDocumento.errors?.required" class="invalid-feedback">
+              Este campo es requerido
             </div>
           </div>
+        </div>
         <div class="form-group row">
-          <label class="col-3 col-sm-2 col-form-label">Nombres</label>
+          <label class="col-3 col-sm-2 col-form-label" for="nombres">Nombres</label>
           <div class="col-9 col-sm-10">
             <input class="form-control" [ngClass]="{'is-invalid': nombre.errors && (nombre.dirty || nombre.touched)}" type="text" name="nombre"
-              [(ngModel)]="alumno.nombre" required #nombre="ngModel">
+              [(ngModel)]="alumno.nombre" id="nombres" required #nombre="ngModel">
             <div *ngIf="nombre.errors?.required" class="invalid-feedback">
               Este campo es requerido
             </div>
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-3 col-sm-2 col-form-label">Primer Apellido</label>
+          <label class="col-3 col-sm-2 col-form-label" for="apellido01">Primer Apellido</label>
           <div class="col-9 col-sm-10">
-            <input class="form-control" [ngClass]="{'is-invalid': apellido01.errors && (apellido01.dirty)}" type="text" name="apellido01"
-              [(ngModel)]="alumno.primerApellido" required #apellido01="ngModel">
+            <input class="form-control" [ngClass]="{'is-invalid': apellido01.errors && (apellido01.dirty || apellido01.touched)}" type="text"
+              name="apellido01" [(ngModel)]="alumno.primerApellido" id="apellido01" required #apellido01="ngModel">
             <div *ngIf="apellido01.errors?.required" class="invalid-feedback">
               Este campo es requerido
             </div>
@@ -50,22 +54,34 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-3 col-sm-2 col-form-label">Segundo Apellido</label>
+          <label class="col-3 col-sm-2 col-form-label" for="apellido02">Segundo Apellido</label>
           <div class="col-9 col-sm-10">
-            <input class="form-control" [ngClass]="{'is-invalid': apellido02.errors && (apellido02.dirty || apellido02.touched)}" type="text"
-              name="apellido02" [(ngModel)]="alumno.segundoApellido" #apellido02="ngModel">
+            <input class="form-control" id="apellido02" [ngClass]="{'is-invalid': apellido02.errors && (apellido02.dirty || apellido02.touched)}"
+              type="text" name="apellido02" [(ngModel)]="alumno.segundoApellido" #apellido02="ngModel">
           </div>
         </div>
         <div class="form-group row">
-            <label class="col-3 col-sm-2 col-form-label">Curso</label>
-            <div class="col-9 col-sm-10">
-              <input class="form-control" [ngClass]="{'is-invalid': curso.errors && (curso.dirty)}" type="text" name="curso"
-                [(ngModel)]="alumno.curso" required #curso="ngModel">
-              <div *ngIf="curso.errors?.required" class="invalid-feedback">
-                Este campo es requerido
-              </div>
+          <label class="col-3 col-sm-2 col-form-label" for="curso">Curso</label>
+          <div class="col-9 col-sm-10">
+            <select class="form-control" [ngClass]="{'is-invalid': curso.errors && (curso.dirty || curso.touched)}" name="curso" [(ngModel)]="alumno.curso"
+              id="curso" required #curso="ngModel">
+              <option value="1">Primero (Primaria)</option>
+              <option value="2">Segundo (Primaria)</option>
+              <option value="3">Tercero (Primaria)</option>
+              <option value="4">Cuarto (Primaria)</option>
+              <option value="5">Quinto (Primaria)</option>
+              <option value="6">Sexto (Bachillerato)</option>
+              <option value="7">Septimo (Bachillerato)</option>
+              <option value="8">Octavo (Bachillerato)</option>
+              <option value="9">Noveno (Bachillerato)</option>
+              <option value="10">Decimo (Bachillerato)</option>
+              <option value="11">Onceabo (Bachillerato)</option>
+            </select>
+            <div *ngIf="curso.errors?.required" class="invalid-feedback">
+              Este campo es requerido
             </div>
           </div>
+        </div>
         <div class="form-group row justify-content-center">
           <div class="input-group col-12 col-sm-3 mt-1">
             <button type="submit" [disabled]='!forma.valid' class="btn btn-primary btn-block">

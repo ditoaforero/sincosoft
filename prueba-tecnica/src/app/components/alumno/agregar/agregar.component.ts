@@ -13,11 +13,11 @@ export class AgregarAlumnoComponent implements OnInit {
 
   constructor(
     private _alumnoService: AlumnoService,
-    private _router:Router
+    private _router: Router
   ) { }
 
   ngOnInit() {
-    
+
   }
 
   agregar() {
@@ -32,9 +32,14 @@ export class AgregarAlumnoComponent implements OnInit {
     */
     this._alumnoService.agregar(this.alumno);
     this.alumno = new Alumno();
-    
 
 
+
+  }
+
+  getSelectedValue(event: any) {
+    console.log('Selected value');
+    console.log(event);
   }
 
 }
