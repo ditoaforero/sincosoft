@@ -1,41 +1,80 @@
 <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h3>Profesores</h3>
-      </div>
-    </div>
-  
-    <div class="row">
-      <div class="col">
-        <table class="table table-hover">
-          <thead class="thead-default">
-            <tr>
-              <th>Nombre</th>
-              <th>Primer apellido</th>
-              <th>Segundo apellido</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let profesor of profesores; let i=index">
-              <td>{{profesor.nombre}}</td>
-              <td>{{profesor.primerApellido}}</td>
-              <td>{{profesor.segundoApellido}}</td>
-              <td>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-outline-primary">Editar</button>
-                  <button type="button" class="btn btn-outline-primary">Materias</button>
-                  <button type="button" class="btn btn-outline-danger">Eliminar</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-4">
-          <button type="button" [routerLink]="['/agregarProfesor']" class="btn btn btn-primary">Agregar nuevo profesor</button>
-      </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h3>Profesores</h3>
     </div>
   </div>
+  <div class="row mb-3 justify-content-between">
+    <div class="col-12 col-sm-5 col-lg-3">
+      <button type="button" [routerLink]="['/agregarProfesor']" class="btn btn btn-primary btn-block">Agregar nuevo profesor</button>
+    </div>
+    <div class="col-12 col-sm-5 col-lg-3 align-self-center">
+      <input type="text" placeholder="Buscar nombre..." [(ngModel)]="busqueda" />
+    </div>
+  </div>
+  <div class="row mb-2" *ngIf="busqueda">
+    <div class="col label label-success">
+      Termino de busqueda:
+      <span class="badge badge-success">{{busqueda}}</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <thead class="thead-default">
+          <tr>
+            <th>Tipo documento</th>
+            <th>Número de documento</th>
+            <th>Nombre completo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let profesor of profesores | buscar:busqueda">
+            <td>{{profesor.tipoDocumento}}</td>
+            <td>{{profesor.numeroDocumento}}</td>
+            <td>{{profesor.nombre}} {{profesor.primerApellido}} {{profesor.segundoApellido}}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button [routerLink]="['/editarProfesor',profesor.id]" type="button" class="btn btn-outline-primary">Editar</button>
+                <button [routerLink]="['/gestionarMateriasProfesor',profesor.id]" type="button" class="btn btn-outline-primary">Materias</button>
+                <a href="#modal-{{profesor.id}}" role="button" class="btn btn-outline-danger" data-toggle="modal">Eliminar</a>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modal-{{profesor.id}}" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Confirmar eliminación</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Estas segur@ que deseas eliminar a este profesor?</p>
+                        <p>
+                          Tipo de documento: {{ profesor.tipoDocumento }}
+                          <br> Número documento: {{ profesor.numeroDocumento }}
+                          <br> Nombre: {{profesor.nombre}}
+                          <br> Primer Apellido: {{profesor.primerApellido}}
+                          <br> Segundo Apellido: {{profesor.segundoApellido}}
+                          <br>
+                        </p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" (click)="eliminarProfesor(profesor.id)" data-dismiss="modal">Confirmar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

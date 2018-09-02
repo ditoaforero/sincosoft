@@ -8,6 +8,8 @@ export class ListarProfesoresComponent implements OnInit {
 
   profesores = [
     {
+      tipoDocumento: 'CC',
+      numeroDocumento: 101010,
       nombre:'Teo',
       primerApellido:'Rodriguez',
       segundoApellido:'Romero',

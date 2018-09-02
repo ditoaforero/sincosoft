@@ -23,14 +23,12 @@ import { GestionarMateriasAlumnoComponent } from './components/alumno/gestiornar
 
 // Componentes profesor
 import { ListarProfesoresComponent } from './components/profesor/listar/listar.component';
-import { EliminarProfesorComponent } from './components/profesor/eliminar/eliminar.component'
 import { EditarProfesorComponent } from './components/profesor/editar/editar.component'
 import { AgregarProfesorComponent } from './components/profesor/agregar/agregar.component'
 
 
 // Componentes materia
 import { ListarMateriasComponent } from './components/materia/listar/listar.component';
-import { EliminarMateriaComponent } from './components/materia/eliminar/eliminar.component'
 import { EditarMateriaComponent } from './components/materia/editar/editar.component'
 import { AgregarMateriaComponent } from './components/materia/agregar/agregar.component';
 
@@ -52,13 +50,11 @@ import { BuscarPipe } from './pipes/buscar.pipe';
     EditarAlumnoComponent,
     GestionarMateriasAlumnoComponent,
     ListarProfesoresComponent,
-    EliminarProfesorComponent,
     EditarProfesorComponent,
     AgregarProfesorComponent,
     ListarMateriasComponent,
     AgregarMateriaComponent,
     EditarMateriaComponent,
-    EliminarMateriaComponent,
     HomeComponent,
     BuscarPipe
 
