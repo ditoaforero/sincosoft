@@ -25,7 +25,7 @@ export class AlumnoService {
     agregar(alumno: Alumno) {
 
         /*
-        // Para consumo de la petición rest 
+        // Para consumo de la petición REST
         let payload = JSON.stringify(alumno);
         console.log('Servicio - AlumnoService - agregar');
         console.log('Alumno:', alumno);
@@ -51,7 +51,6 @@ export class AlumnoService {
             alumno.id = 1;
         }
         
-        console.log('Id a asignar:',alumno.id);
 
         // Se agrega el alumno
         this.alumnos.push(alumno);
@@ -67,10 +66,13 @@ export class AlumnoService {
         return this.alumnos;
     }
 
-    eliminarAlumno(alumno){
-        var index = this.alumnos.indexOf(alumno);
-        if(index!==-1){
-            this.alumnos.splice(index,1);
+    eliminarAlumno(id:number){
+        let index:number = 0;
+        for(let i=0; i<this.alumnos.length; i++){
+            if (this.alumnos[i].id == id ){
+                index = this.alumnos.indexOf(this.alumnos[i]);
+                this.alumnos.splice(index,1);
+            }
         }
         localStorage.setItem('alumnos',JSON.stringify(this.alumnos));
     }
