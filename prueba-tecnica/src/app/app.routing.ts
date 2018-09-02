@@ -13,12 +13,9 @@ import { GestionarMateriasAlumnoComponent } from './components/alumno/gestiornar
 import { AgregarMateriaComponent } from './components/materia/agregar/agregar.component';
 import { EditarMateriaComponent } from './components/materia/editar/editar.component';
 import { AgregarProfesorComponent } from './components/profesor/agregar/agregar.component';
-<<<<<<< HEAD
 import { AsociarMateriasComponent } from './components/alumno/asociar-materias/asociar-materias.component';
-=======
 import { EditarProfesorComponent } from './components/profesor/editar/editar.component';
 import { GestionarMateriasProfesorComponent } from './components/profesor/gestionar-materias/gestionar-materias.component';
->>>>>>> a2fa713ec8029e48a2d95b5abc7bc1ea05f4f641
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
