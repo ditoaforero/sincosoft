@@ -30,8 +30,6 @@ export class EditarMateriaComponent implements OnInit {
 
   editar() {
     this._materiaService.actualizarMateria(this.materia);
-    this.materia = new Materia();
-    document.querySelector('form').reset();
     alert("Materia actualizada!")
   }
 }

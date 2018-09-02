@@ -22,8 +22,10 @@ export class AgregarProfesorComponent implements OnInit {
   }
 
   agregar() {
-    
     this._profesorService.agregar(this.profesor);
     this.profesor = new Profesor();
+    document.querySelector('form').reset();
+    alert("Profesor Agregado")
+
   }
 }

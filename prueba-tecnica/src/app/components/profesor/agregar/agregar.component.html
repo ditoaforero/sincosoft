@@ -7,8 +7,8 @@
     </div>
     <div class="row">
       <div class="col">
-        <form (ngSubmit)="agregar()" class="needs-validation" #forma="ngForm" novalidate>
-  
+        <form (ngSubmit)="agregar()" class="needs-validation" #forma="ngForm" novalidate id="form">
+
           <div class="form-group row">
             <label class="col-3 col-sm-2 col-form-label" for="tipoDocumento">Tipo de documento</label>
             <div class="col-9 col-sm-10">
@@ -52,7 +52,7 @@
               </div>
             </div>
           </div>
-  
+
           <div class="form-group row">
             <label class="col-3 col-sm-2 col-form-label" for="apellido02">Segundo Apellido</label>
             <div class="col-9 col-sm-10">
@@ -60,7 +60,7 @@
                 type="text" name="apellido02" [(ngModel)]="profesor.segundoApellido" #apellido02="ngModel">
             </div>
           </div>
-          
+
           <div class="form-group row justify-content-center">
             <div class="input-group col-12 col-sm-3 mt-1">
               <button type="submit" [disabled]='!forma.valid' class="btn btn-primary btn-block">

@@ -1,7 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 //Componentes
 import { HomeComponent } from '../app/components/home/home.component';
 import { ListarAlumnosComponent } from '../app/components/alumno/listar/listar.component';
@@ -14,6 +13,7 @@ import { GestionarMateriasAlumnoComponent } from './components/alumno/gestiornar
 import { AgregarMateriaComponent } from './components/materia/agregar/agregar.component';
 import { EditarMateriaComponent } from './components/materia/editar/editar.component';
 import { AgregarProfesorComponent } from './components/profesor/agregar/agregar.component';
+import { EditarProfesorComponent } from './components/profesor/editar/editar.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -27,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'editarMateria/:id', component: EditarMateriaComponent },
   { path: 'profesores', component: ListarProfesoresComponent },
   { path: 'agregarProfesor', component: AgregarProfesorComponent },
+  { path: 'editarProfesor/:id', component: EditarProfesorComponent },
   { path: '**', component: HomeComponent }
 
 ];
