@@ -43,9 +43,9 @@ export class GestionarMateriasProfesorComponent implements OnInit {
 
   validarMateriasAsociadas(materia: Materia){
       if(this.materiasProfesor.filter(_=> _.idMateria == materia.id).length>0)
-        return true
+        return "SI"
       else
-        return false
+        return "NO"
   }
 
   excluir(idMateria: string){
