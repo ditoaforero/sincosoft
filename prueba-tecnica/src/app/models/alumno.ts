@@ -1,9 +1,13 @@
-export class Alumno {
-    constructor(
-        public nombre:string,
-        public primerApellido:string,
-        public segundoApellido:string
-    ){
+import { Materia } from "./materia";
 
+export class Alumno {
+
+    nombre:string=null;
+    primerApellido:string=null;
+    segundoApellido:string=null;
+    materias:Array<Materia>=[];
+
+    constructor(){
     }
+    
 }

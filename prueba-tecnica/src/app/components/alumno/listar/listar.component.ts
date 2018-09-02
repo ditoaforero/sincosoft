@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlumnoService } from '../../../services/alumno.service';
+import { Alumno } from '../../../models/alumno';
 
 @Component({
   selector: 'app-listar',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarAlumnosComponent implements OnInit {
 
+  alumnos: Array<Alumno>;
+  
+  /*
   alumnos = [
     {
       nombre:'Eduardo',
@@ -20,10 +25,14 @@ export class ListarAlumnosComponent implements OnInit {
       curso: 11
     },
   ];
+  */
 
-  constructor() { }
+  constructor( 
+    private _alumnoService:AlumnoService
+  ) { }
 
   ngOnInit() {
+    this.alumnos= this._alumnoService.obtenerListado();
   }
 
 }

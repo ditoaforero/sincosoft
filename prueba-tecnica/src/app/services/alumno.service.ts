@@ -10,9 +10,11 @@ import { Alumno } from '../models/alumno';
 
 @Injectable()
 export class AlumnoService {
-    //public url: string;
+
+    // Declaración de la variable que tendra el EndPoint del servicio rest
     url: string;
-    
+
+    alumnos: Array<Alumno>=[];
 
     constructor(private _http: HttpClient) {
         // Se construye la URL para las peticiones respectivas
@@ -20,9 +22,10 @@ export class AlumnoService {
     }
 
     // Funcion para agregar el alumno
-
     agregar(alumno: Alumno) {
 
+        /*
+        // Para consumo de la petición rest 
         let payload = JSON.stringify(alumno);
         console.log('Servicio - AlumnoService - agregar');
         console.log('Alumno:', alumno);
@@ -36,9 +39,29 @@ export class AlumnoService {
             .pipe(map(res => {
                 return res['message'];
             }));
-    
+        */
+
+        console.log('Servicio - AlumnoService - agregar');
+        console.log('Alumno:', alumno);
+
+        this.alumnos.push(alumno);
+        localStorage.setItem('alumnos',JSON.stringify(this.alumnos));
+
     }
 
-    
+    obtenerListado(){
+        this.alumnos = JSON.parse(localStorage.getItem('alumnos'));
+        return this.alumnos;
+    }
+
+    eliminar(alumno){
+        var index = this.alumnos.indexOf(alumno);
+        if(index!==-1){
+            this.alumnos.splice(index,1);
+        }
+        localStorage.setItem('alumnos',JSON.stringify(this.alumnos));
+    }
+
+
 }
 
