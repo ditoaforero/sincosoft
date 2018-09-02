@@ -45,14 +45,17 @@ export class AlumnoService {
         console.log('Servicio - AlumnoService - agregar');
         console.log('Alumno:', alumno);
 
-        // Generación automatica del id
-        alumno.id = UUID.UUID();
-
-
-        // Se agrega el alumno
-        this.alumnos.push(alumno);
-        localStorage.setItem('alumnos', JSON.stringify(this.alumnos));
-
+        if (!this.existeAlumno(alumno.tipoDocumento, alumno.numeroDocumento)) {
+            console.log('El alumno no existe');
+            // Generación automatica del id
+            alumno.id = UUID.UUID();
+            // Se agrega el alumno
+            this.alumnos.push(alumno);
+            localStorage.setItem('alumnos', JSON.stringify(this.alumnos));
+            console.log('Se agregó el alumno');
+        } else {
+            console.log('Ya existe el alumno');
+        }
     }
 
     obtenerListado() {
@@ -90,6 +93,18 @@ export class AlumnoService {
             }
         }
         return null;
+    }
+
+
+    private existeAlumno(tipoDocumento: string, numeroDocumento: number): boolean {
+        let existe: boolean = false;
+        for (let i = 0; i < this.alumnos.length; i++) {
+            if (this.alumnos[i].tipoDocumento == tipoDocumento && this.alumnos[i].numeroDocumento == numeroDocumento) {
+                return true;
+            }
+        }
+        return existe;
+
     }
 
 }

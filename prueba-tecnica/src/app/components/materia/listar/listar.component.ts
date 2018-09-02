@@ -8,10 +8,19 @@ export class ListarMateriasComponent implements OnInit {
 
   materias = [
     {
-      nombre:'Matematicas'
+      id: 1,
+      nombre:'Matematicas',
+      curso: 1
     },
     {
-      nombre:'Español'
+      id: 2,
+      nombre:'Español',
+      curso: 2
+    },
+    {
+      id: 3,
+      nombre:'Matematicas',
+      curso: 2
     }
   ];
 

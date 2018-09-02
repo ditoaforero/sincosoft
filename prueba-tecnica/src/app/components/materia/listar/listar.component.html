@@ -1,7 +1,20 @@
-<div class="container">
+  <div class="container">
     <div class="row">
       <div class="col-12">
         <h3>Materias</h3>
+      </div>
+    </div>
+    <div class="row mb-3 justify-content-between">
+      <div class="col-12 col-sm-5 col-lg-3">
+        <button type="button" [routerLink]="['/agregarMateria']" class="btn btn btn-primary btn-block">Agregar nueva Materia</button>
+      </div>
+      <div class="col-12 col-sm-5 col-lg-3 align-self-center">
+          <input type="text" placeholder="buscar" [(ngModel)]="busqueda"/>
+        </div>
+    </div>
+    <div class="row mb-2" *ngIf="busqueda">
+      <div class="col label label-success">
+        Termino de busqueda: <span class="badge badge-success">{{busqueda}}</span>
       </div>
     </div>
   
@@ -11,26 +24,48 @@
           <thead class="thead-default">
             <tr>
               <th>Nombre</th>
+              <th>Curso</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let materia of materias; let i=index">
+            <tr *ngFor="let materia of materias | buscar:busqueda">
               <td>{{materia.nombre}}</td>
+              <td>{{materia.curso}}</td>
               <td>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-outline-primary">Editar</button>
-                  <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                <div class="btn-group" role="group">
+                  <button [routerLink]="['/editarMateria',materia.id]" type="button" class="btn btn-outline-primary">Editar</button>
+                  <a href="#modal-{{materia.id}}" role="button" class="btn btn-outline-danger" data-toggle="modal">Eliminar</a>
+  
+                  <!-- Modal -->
+                  <div class="modal fade" id="modal-{{materia.id}}" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalCenterTitle">Confirmar eliminación</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Estas segur@ que deseas eliminar a esta materia?</p>
+                            <p>
+                              Nombre: {{materia.nombre}} <br>
+                              Curso: {{ materia.curso }} <br>
+                            </p>
+                          </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" (click)="eliminarMateria(materia.id)" data-dismiss="modal">Confirmar</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-4">
-        <button type="button" [routerLink]="['/agregarMateria']" class="btn btn btn-primary">Agregar nueva Materia</button>
       </div>
     </div>
   </div>
