@@ -10,6 +10,11 @@
             Alumno: {{ nombreCompleto }}
         </div>
     </div>
+    <div class="row mb-3 justify-content-between">
+        <div class="col-12 col-sm-5 col-lg-3">
+            <button type="button" [routerLink]="['/asociarMateriasAlumno',alumno.id]" class="btn btn btn-primary btn-block">Asociar materia</button>
+        </div>
+    </div>
     <div class="row" *ngIf=materias>
         <div class="col">
             <table class="table table-hover">
@@ -23,7 +28,7 @@
                     <tr *ngFor="let materia of materias">
                         <td>{{materia.nombre}}</td>
                         <td>
-                            <div class="btn-group" role="group" aria-label="Basic example">
+                            <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-outline-primary">Editar</button>
                                 <button type="button" class="btn btn-outline-danger">Eliminar</button>
                             </div>
@@ -34,8 +39,8 @@
         </div>
     </div>
     <div class="row" *ngIf=!materias>
-            <div class="col">
-                Actualmente el alumno no tiene materias asociadas
-            </div>
+        <div class="col">
+            Actualmente el alumno no tiene materias asociadas
         </div>
+    </div>
 </div>

@@ -1,0 +1,66 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <h2>Asociar materias a Alumno</h2>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, voluptatum ullam? Nesciunt veritatis sequi quibusdam dolorum
+      adipisci quo error itaque ducimus reprehenderit. Aut, corporis exercitationem velit fugit architecto alias est.
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <h4>Selecciona las materias a asociar</h4>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row mt-1">
+    <div class="col">
+      <form (ngSubmit)="confirmarMaterias()" #forma="ngForm">
+
+
+        <div class="form-group row">
+          <label class="col-3 col-sm-2 col-form-label">Materias</label>
+          <div class="col-9 col-sm-10">
+            <div class="custom-control custom-checkbox" *ngFor="let materiaAux of materiasAux">
+              <input name="materia" type="checkbox" [id]="materiaAux.materia.id" [checked]="materiaAux.asociada" (change)="cambiarEstado(materiaAux.materia.id)" class="custom-control-input">
+              <label [for]="materiaAux.materia.id" class="custom-control-label">{{materiaAux.materia.nombre}} - {{materiaAux.materia.curso}} </label>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group row justify-content-center mt-3">
+          <div class="input-group col-12 col-sm-3 mt-1">
+            <button type="submit" [disabled]='!forma.valid' class="btn btn-primary btn-block">
+              Confirmar
+            </button>
+          </div>
+          <div class="input-group col-12 col-sm-3 mt-1">
+            <button type="button" [routerLink]="['/gestionarMateriasAlumno',idAlumno]" class="btn btn-secondary btn-block">
+              Regresar
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <div>
+    <p *ngFor="let materiaAux of materiasAsociadasAux">
+      {{materiaAux.materia.nombre}},{{materiaAux.asociada}}
+    </p>
+  </div>
+
+
+
+
+</div>

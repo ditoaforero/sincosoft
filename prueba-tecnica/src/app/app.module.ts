@@ -40,6 +40,7 @@ import { ProfesorService } from './services/profesor.service';
 
 // Pipes
 import { BuscarPipe } from './pipes/buscar.pipe';
+import { AsociarMateriasComponent } from './components/alumno/asociar-materias/asociar-materias.component';
 
 
 
@@ -58,7 +59,8 @@ import { BuscarPipe } from './pipes/buscar.pipe';
     AgregarMateriaComponent,
     EditarMateriaComponent,
     HomeComponent,
-    BuscarPipe
+    BuscarPipe,
+    AsociarMateriasComponent
 
   ],
   imports: [

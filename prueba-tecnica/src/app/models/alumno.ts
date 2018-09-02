@@ -1,4 +1,4 @@
-import { Materia } from "./materia";
+import { MateriaAlumno } from "./materia-alumno";
 
 export class Alumno {
 
@@ -8,7 +8,7 @@ export class Alumno {
     nombre:string=null;
     primerApellido:string=null;
     segundoApellido:string=null;
-    materias:Array<Materia>=[];
+    materias:Array<MateriaAlumno>=[];
 
     constructor(){
     }

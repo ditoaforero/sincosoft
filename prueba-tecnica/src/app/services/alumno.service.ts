@@ -8,6 +8,7 @@ import { GLOBAL } from './global';
 
 // Modelo
 import { Alumno } from '../models/alumno';
+import { MateriaAlumno } from '../models/materia-alumno'
 
 @Injectable()
 export class AlumnoService {
@@ -104,7 +105,26 @@ export class AlumnoService {
             }
         }
         return existe;
+    }
 
+    obtenerMateriasAlumno(id:string) {
+        let alumnos:Array<Alumno>=this.obtenerListado();
+        for (let i = 0; i<alumnos.length; i++) {
+            if (alumnos[i].id == id) {
+                return alumnos[i].materias;
+            }
+        }
+    }
+
+    actualizarMateriasAlumno(id:string, materias:Array<MateriaAlumno>){
+        let alumnos:Array<Alumno>=this.obtenerListado();
+        for (let i = 0; i<alumnos.length; i++) {
+            if (alumnos[i].id == id) {
+                alumnos[i].materias=materias;
+                this.actualizarAlumno(alumnos[i]);
+                break;
+            }
+        }
     }
 
 }
