@@ -44,17 +44,30 @@ export class AlumnoService {
         console.log('Servicio - AlumnoService - agregar');
         console.log('Alumno:', alumno);
 
+        // Generación automatica del id
+        if (this.alumnos!=null){
+            alumno.id = this.alumnos.length +1;
+        } else {
+            alumno.id = 1;
+        }
+        
+        console.log('Id a asignar:',alumno.id);
+
+        // Se agrega el alumno
         this.alumnos.push(alumno);
         localStorage.setItem('alumnos',JSON.stringify(this.alumnos));
 
     }
 
     obtenerListado(){
-        this.alumnos = JSON.parse(localStorage.getItem('alumnos'));
+        this.alumnos=[];
+        if(localStorage.getItem('alumnos')){
+            this.alumnos = JSON.parse(localStorage.getItem('alumnos'));
+        }
         return this.alumnos;
     }
 
-    eliminar(alumno){
+    eliminarAlumno(alumno){
         var index = this.alumnos.indexOf(alumno);
         if(index!==-1){
             this.alumnos.splice(index,1);
@@ -62,6 +75,23 @@ export class AlumnoService {
         localStorage.setItem('alumnos',JSON.stringify(this.alumnos));
     }
 
+    actualizarAlumno(alumno){
+        var index = this.alumnos.indexOf(alumno);
+        if(index!==-1){
+            this.alumnos.splice(index,1,alumno);
+        }
+        localStorage.setItem('alumnos',JSON.stringify(this.alumnos));
+    }
+
+    obtenerAlumno(id:number){
+        console.log('Llego a obtener alumno',id)
+        for(let i=0; i<this.alumnos.length; i++){
+            if (this.alumnos[i].id == id ){
+                return this.alumnos[i];
+            }
+        }
+        return null;
+    }
 
 }
 
