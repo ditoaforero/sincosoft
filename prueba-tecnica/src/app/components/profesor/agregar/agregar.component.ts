@@ -26,6 +26,5 @@ export class AgregarProfesorComponent implements OnInit {
     this.profesor = new Profesor();
     document.querySelector('form').reset();
     alert("Profesor Agregado")
-
   }
 }

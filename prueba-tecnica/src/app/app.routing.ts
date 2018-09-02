@@ -14,6 +14,7 @@ import { AgregarMateriaComponent } from './components/materia/agregar/agregar.co
 import { EditarMateriaComponent } from './components/materia/editar/editar.component';
 import { AgregarProfesorComponent } from './components/profesor/agregar/agregar.component';
 import { EditarProfesorComponent } from './components/profesor/editar/editar.component';
+import { GestionarMateriasProfesorComponent } from './components/profesor/gestionar-materias/gestionar-materias.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
   { path: 'profesores', component: ListarProfesoresComponent },
   { path: 'agregarProfesor', component: AgregarProfesorComponent },
   { path: 'editarProfesor/:id', component: EditarProfesorComponent },
+  { path: 'gestionarMateriasProfesor/:id', component: GestionarMateriasProfesorComponent },
   { path: '**', component: HomeComponent }
 
 ];

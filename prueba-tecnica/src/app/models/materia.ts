@@ -9,6 +9,6 @@ export class Materia {
 
     constructor(
     ){
-        
+
     }
 }
