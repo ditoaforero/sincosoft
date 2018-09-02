@@ -19,7 +19,7 @@ import { HomeComponent } from './components/home/home.component'
 import { AgregarAlumnoComponent } from './components/alumno/agregar/agregar.component';
 import { ListarAlumnosComponent } from './components/alumno/listar/listar.component';
 import { EditarAlumnoComponent } from './components/alumno/editar/editar.component';
-import { EliminarAlumnoComponent } from './components/alumno/eliminar/eliminar.component';
+import { GestionarMateriasAlumnoComponent } from './components/alumno/gestiornar-materias/gestionar-materias.component';
 
 // Componentes profesor
 import { ListarProfesoresComponent } from './components/profesor/listar/listar.component';
@@ -38,13 +38,18 @@ import { AgregarMateriaComponent } from './components/materia/agregar/agregar.co
 import { AlumnoService } from './services/alumno.service';
 
 
+// Pipes
+import { BuscarPipe } from './pipes/buscar.pipe';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ListarAlumnosComponent,
     AgregarAlumnoComponent,
     EditarAlumnoComponent,
-    EliminarAlumnoComponent,
+    GestionarMateriasAlumnoComponent,
     ListarProfesoresComponent,
     EliminarProfesorComponent,
     EditarProfesorComponent,
@@ -53,7 +58,8 @@ import { AlumnoService } from './services/alumno.service';
     AgregarMateriaComponent,
     EditarMateriaComponent,
     EliminarMateriaComponent,
-    HomeComponent
+    HomeComponent,
+    BuscarPipe
 
   ],
   imports: [

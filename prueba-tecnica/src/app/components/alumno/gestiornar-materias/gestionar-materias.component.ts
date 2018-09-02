@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-eliminar',
-  templateUrl: './eliminar.component.html'
+  templateUrl: './gestionar-materias.component.html'
 })
-export class EliminarAlumnoComponent implements OnInit {
+export class GestionarMateriasAlumnoComponent implements OnInit {
 
   constructor() { }
 

@@ -9,6 +9,8 @@ import { Alumno } from '../../../models/alumno';
 export class ListarAlumnosComponent implements OnInit {
 
   alumnos: Array<Alumno>;
+
+  busqueda:string;
   
   /*
   alumnos = [

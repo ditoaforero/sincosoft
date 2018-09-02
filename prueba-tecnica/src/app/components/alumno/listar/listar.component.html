@@ -5,9 +5,17 @@
     </div>
 
   </div>
-  <div class="row mb-3">
+  <div class="row mb-3 justify-content-between">
     <div class="col-12 col-sm-5 col-lg-3">
       <button type="button" [routerLink]="['/agregarAlumno']" class="btn btn btn-primary btn-block">Agregar nuevo alumno</button>
+    </div>
+    <div class="col-12 col-sm-5 col-lg-3 align-self-center">
+        <input type="text" placeholder="buscar" [(ngModel)]="busqueda"/>
+      </div>
+  </div>
+  <div class="row mb-2" *ngIf="busqueda">
+    <div class="col label label-success">
+      Termino de busqueda: <span class="badge badge-success">{{busqueda}}</span>
     </div>
   </div>
 
@@ -24,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let alumno of alumnos; let i=index">
+          <tr *ngFor="let alumno of alumnos | buscar:busqueda">
             <td>{{alumno.tipoDocumento}}</td>
             <td>{{alumno.numeroDocumento}}</td>
             <td>{{alumno.nombre}} {{alumno.primerApellido}} {{alumno.segundoApellido}}</td>
