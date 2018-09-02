@@ -36,6 +36,7 @@ import { AgregarMateriaComponent } from './components/materia/agregar/agregar.co
 
 //Servicios
 import { AlumnoService } from './services/alumno.service';
+import { MateriaService } from './services/materia.service';
 
 
 // Pipes
@@ -70,7 +71,8 @@ import { BuscarPipe } from './pipes/buscar.pipe';
   ],
   providers: [
     appRoutingProviders,
-    AlumnoService
+    AlumnoService,
+    MateriaService
   ],
   bootstrap: [AppComponent]
 })

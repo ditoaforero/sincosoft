@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MateriaService } from '../../../services/materia.service';
+import { Materia } from '../../../models/materia';
 
 @Component({
   selector: 'app-listar',
@@ -6,28 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarMateriasComponent implements OnInit {
 
-  materias = [
-    {
-      id: 1,
-      nombre:'Matematicas',
-      curso: 1
-    },
-    {
-      id: 2,
-      nombre:'Español',
-      curso: 2
-    },
-    {
-      id: 3,
-      nombre:'Matematicas',
-      curso: 2
-    }
-  ];
+  materias: Array<Materia>;
 
-
-  constructor() { }
+  busqueda:string;
+  
+  constructor( 
+    private _materiaService:MateriaService
+  ) { }
 
   ngOnInit() {
+    this.materias= this._materiaService.obtenerListado();
+  }
+
+  eliminarAlumno(id:string){
+    this._materiaService.eliminarMateria(id);
+    this.materias= this._materiaService.obtenerListado();
   }
 
 }
