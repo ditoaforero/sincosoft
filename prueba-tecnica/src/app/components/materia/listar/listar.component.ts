@@ -20,7 +20,7 @@ export class ListarMateriasComponent implements OnInit {
     this.materias= this._materiaService.obtenerListado();
   }
 
-  eliminarAlumno(id:string){
+  eliminarMateria(id:string){
     this._materiaService.eliminarMateria(id);
     this.materias= this._materiaService.obtenerListado();
   }

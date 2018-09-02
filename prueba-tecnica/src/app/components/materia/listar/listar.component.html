@@ -9,7 +9,7 @@
         <button type="button" [routerLink]="['/agregarMateria']" class="btn btn btn-primary btn-block">Agregar nueva Materia</button>
       </div>
       <div class="col-12 col-sm-5 col-lg-3 align-self-center">
-          <input type="text" placeholder="buscar" [(ngModel)]="busqueda"/>
+          <input type="text" placeholder="Buscar nombre..." [(ngModel)]="busqueda"/>
         </div>
     </div>
     <div class="row mb-2" *ngIf="busqueda">
@@ -25,6 +25,7 @@
             <tr>
               <th>Nombre</th>
               <th>Curso</th>
+              <th>Profesor</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -32,6 +33,7 @@
             <tr *ngFor="let materia of materias | buscar:busqueda">
               <td>{{materia.nombre}}</td>
               <td>{{materia.curso}}</td>
+              <td>Ninguno</td>
               <td>
                 <div class="btn-group" role="group">
                   <button [routerLink]="['/editarMateria',materia.id]" type="button" class="btn btn-outline-primary">Editar</button>

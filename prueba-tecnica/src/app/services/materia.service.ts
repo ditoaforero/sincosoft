@@ -45,6 +45,7 @@ export class MateriaService {
             if (this.materias[i].id == id) {
                 index = this.materias.indexOf(this.materias[i]);
                 this.materias.splice(index, 1);
+                console.log('Se eliminó la materia');
             }
         }
         localStorage.setItem('materias', JSON.stringify(this.materias));
