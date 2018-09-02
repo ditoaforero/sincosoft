@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
+import { HttpClientModule} from "@angular/common/http";
+
 // Routing
 import { routing, appRoutingProviders } from './app.routing';
 
@@ -32,6 +34,9 @@ import { EliminarMateriaComponent } from './components/materia/eliminar/eliminar
 import { EditarMateriaComponent } from './components/materia/editar/editar.component'
 import { AgregarMateriaComponent } from './components/materia/agregar/agregar.component';
 
+//Servicios
+import { AlumnoService } from './services/alumno.service';
+
 
 @NgModule({
   declarations: [
@@ -54,10 +59,12 @@ import { AgregarMateriaComponent } from './components/materia/agregar/agregar.co
   imports: [
     BrowserModule,
     FormsModule,
-    routing
+    routing,
+    HttpClientModule
   ],
   providers: [
     appRoutingProviders,
+    AlumnoService
   ],
   bootstrap: [AppComponent]
 })

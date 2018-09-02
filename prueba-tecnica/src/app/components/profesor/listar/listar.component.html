@@ -1,3 +1,41 @@
-<p>
-  listar profesores works!
-</p>
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3>Profesores</h3>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col">
+        <table class="table table-hover">
+          <thead class="thead-default">
+            <tr>
+              <th>Nombre</th>
+              <th>Primer apellido</th>
+              <th>Segundo apellido</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let profesor of profesores; let i=index">
+              <td>{{profesor.nombre}}</td>
+              <td>{{profesor.primerApellido}}</td>
+              <td>{{profesor.segundoApellido}}</td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-outline-primary">Editar</button>
+                  <button type="button" class="btn btn-outline-primary">Materias</button>
+                  <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+          <button type="button" [routerLink]="['/agregarProfesor']" class="btn btn btn-primary">Agregar nuevo profesor</button>
+      </div>
+    </div>
+  </div>

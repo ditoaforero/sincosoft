@@ -6,6 +6,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarProfesoresComponent implements OnInit {
 
+  profesores = [
+    {
+      nombre:'Teo',
+      primerApellido:'Rodriguez',
+      segundoApellido:'Romero',
+    },
+    {
+      nombre:'Romulo',
+      primerApellido:'Gonzales',
+      segundoApellido:'Pataquiva',
+    },
+  ];
+
   constructor() { }
 
   ngOnInit() {

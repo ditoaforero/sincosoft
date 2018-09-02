@@ -7,17 +7,14 @@
     </div>
     <div class="row">
       <div class="col">
-        <form (ngSubmit)="guardar(forma)" class="needs-validation" #forma="ngForm" novalidate>
+        <form (ngSubmit)="agregar()" class="needs-validation" #forma="ngForm" novalidate>
           <div class="form-group row">
             <label class="col-3 col-sm-2 col-form-label">Nombres</label>
             <div class="col-9 col-sm-10">
-              <input class="form-control" [ngClass]="{'is-invalid': nombrecito.errors && (nombrecito.dirty || nombrecito.touched)}" type="text"
-                name="nombre" [(ngModel)]="alumno.nombre" required minlength="5" #nombrecito="ngModel">
-              <div *ngIf="nombrecito.errors?.required" class="invalid-feedback">
+              <input class="form-control" [ngClass]="{'is-invalid': nombre.errors && (nombre.dirty || nombre.touched)}" type="text"
+                name="nombre" [(ngModel)]="alumno.nombre" required #nombre="ngModel">
+              <div *ngIf="nombre.errors?.required" class="invalid-feedback">
                 Este campo es requerido
-              </div>
-              <div *ngIf="nombrecito.errors?.minlength" class="invalid-feedback">
-                Este campo por lo menos {{nombrecito.errors.minlength.requiredLength}} caracteres
               </div>
             </div>
           </div>
@@ -25,8 +22,8 @@
             <label class="col-3 col-sm-2 col-form-label">Primer Apellido</label>
             <div class="col-9 col-sm-10">
               <input class="form-control" [ngClass]="{'is-invalid': apellido01.errors && (apellido01.dirty || apellido01.touched)}" type="text"
-                name="apellido" [(ngModel)]="alumno.apellido" required #apellido01="ngModel">
-              <div *ngIf="apellido.errors?.required" class="invalid-feedback">
+                name="apellido01" [(ngModel)]="alumno.primerApellido" required #apellido01="ngModel">
+              <div *ngIf="apellido01.errors?.required" class="invalid-feedback">
                 Este campo es requerido
               </div>
             </div>
@@ -36,10 +33,7 @@
             <label class="col-3 col-sm-2 col-form-label">Segundo Apellido</label>
             <div class="col-9 col-sm-10">
               <input class="form-control" [ngClass]="{'is-invalid': apellido02.errors && (apellido02.dirty || apellido02.touched)}" type="text"
-                name="apellido" [(ngModel)]="alumno.apellido" required #apellido02="ngModel">
-              <div *ngIf="apellido.errors?.required" class="invalid-feedback">
-                Este campo es requerido
-              </div>
+                name="apellido02" [(ngModel)]="alumno.segundoApellido" #apellido02="ngModel">
             </div>
           </div>
           <div class="form-group row">

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarAlumnosComponent implements OnInit {
 
-  private alumnos = [
+  alumnos = [
     {
       nombre:'Eduardo',
       primerApellido:'Arevalo',

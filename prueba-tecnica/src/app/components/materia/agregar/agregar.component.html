@@ -1,3 +1,36 @@
-<p>
-  agregar works!
-</p>
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h3>Materias</h3>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col">
+        <table class="table table-hover">
+          <thead class="thead-default">
+            <tr>
+              <th>Nombre</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let materia of materias; let i=index">
+              <td>{{materia.nombre}}</td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-outline-primary">Editar</button>
+                  <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+          <button type="button" [routerLink]="['/agregarMateria']" class="btn btn btn-primary">Agregar nueva Materia</button>
+      </div>
+    </div>
+  </div>
