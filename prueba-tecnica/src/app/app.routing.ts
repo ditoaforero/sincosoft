@@ -10,12 +10,14 @@ import { ListarProfesoresComponent } from '../app/components/profesor/listar/lis
 
 import { AgregarAlumnoComponent } from '../app/components/alumno/agregar/agregar.component';
 import { EditarAlumnoComponent } from './components/alumno/editar/editar.component';
+import { GestionarMateriasAlumnoComponent } from './components/alumno/gestiornar-materias/gestionar-materias.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch:'full' },
   { path: 'home', component: HomeComponent },
   { path: 'alumnos', component: ListarAlumnosComponent },
   { path: 'editarAlumno/:id', component: EditarAlumnoComponent },
+  { path: 'gestionarMateriasAlumno/:id', component: GestionarMateriasAlumnoComponent },
   { path: 'materias', component: ListarMateriasComponent },
   { path: 'profesores', component: ListarProfesoresComponent },
   { path: 'agregarAlumno', component: AgregarAlumnoComponent },

@@ -12,23 +12,6 @@ export class ListarAlumnosComponent implements OnInit {
 
   busqueda:string;
   
-  /*
-  alumnos = [
-    {
-      nombre:'Eduardo',
-      primerApellido:'Arevalo',
-      segundoApellido:'Forero',
-      curso: 10
-    },
-    {
-      nombre:'Lilina',
-      primerApellido:'Manjarres',
-      segundoApellido:'Villanueva',
-      curso: 11
-    },
-  ];
-  */
-
   constructor( 
     private _alumnoService:AlumnoService
   ) { }

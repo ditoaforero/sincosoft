@@ -1,1 +1,41 @@
-<p>hola</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4>Gestionar Materias del Alumno</h4>
+            <hr>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            Alumno: {{ nombreCompleto }}
+        </div>
+    </div>
+    <div class="row" *ngIf=materias>
+        <div class="col">
+            <table class="table table-hover">
+                <thead class="thead-default">
+                    <tr>
+                        <th>Nombre materia</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let materia of materias">
+                        <td>{{materia.nombre}}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-primary">Editar</button>
+                                <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row" *ngIf=!materias>
+            <div class="col">
+                Actualmente el alumno no tiene materias asociadas
+            </div>
+        </div>
+</div>

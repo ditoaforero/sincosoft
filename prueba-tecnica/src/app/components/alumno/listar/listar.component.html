@@ -40,7 +40,7 @@
             <td>
               <div class="btn-group" role="group" aria-label="Basic example">
                 <button [routerLink]="['/editarAlumno',alumno.id]" type="button" class="btn btn-outline-primary">Editar</button>
-                <button type="button" class="btn btn-outline-primary">Materias</button>
+                <button [routerLink]="['/gestionarMateriasAlumno',alumno.id]" type="button" class="btn btn-outline-primary">Materias</button>
                 <a href="#modal-{{alumno.id}}" role="button" class="btn btn-outline-danger" data-toggle="modal">Eliminar</a>
 
                 <!-- Modal -->
