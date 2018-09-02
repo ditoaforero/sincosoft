@@ -11,8 +11,8 @@ export class ListarMateriasComponent implements OnInit {
   materias: Array<Materia>;
 
   busqueda:string;
-  
-  constructor( 
+
+  constructor(
     private _materiaService:MateriaService
   ) { }
 
