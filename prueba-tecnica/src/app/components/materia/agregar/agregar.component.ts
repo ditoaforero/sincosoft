@@ -25,6 +25,8 @@ export class AgregarMateriaComponent implements OnInit {
   agregar() {
     this._materiaService.agregar(this.materia);
     this.materia = new Materia();
+    document.querySelector('form').reset();
+    alert("Materia agregada!")
   }
 
 

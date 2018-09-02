@@ -25,6 +25,7 @@ import { GestionarMateriasAlumnoComponent } from './components/alumno/gestiornar
 import { ListarProfesoresComponent } from './components/profesor/listar/listar.component';
 import { EditarProfesorComponent } from './components/profesor/editar/editar.component'
 import { AgregarProfesorComponent } from './components/profesor/agregar/agregar.component'
+import { GestionarMateriasProfesorComponent } from './components/profesor/gestionar-materias/gestionar-materias.component'
 
 
 // Componentes materia
@@ -36,7 +37,7 @@ import { AgregarMateriaComponent } from './components/materia/agregar/agregar.co
 import { AlumnoService } from './services/alumno.service';
 import { MateriaService } from './services/materia.service';
 import { ProfesorService } from './services/profesor.service';
-
+import { MateriaProfesorService } from './services/materias-profesor.service';
 
 // Pipes
 import { BuscarPipe } from './pipes/buscar.pipe';
@@ -55,6 +56,7 @@ import { AsociarMateriasComponent } from './components/alumno/asociar-materias/a
     ListarProfesoresComponent,
     EditarProfesorComponent,
     AgregarProfesorComponent,
+    GestionarMateriasProfesorComponent,
     ListarMateriasComponent,
     AgregarMateriaComponent,
     EditarMateriaComponent,
@@ -73,7 +75,8 @@ import { AsociarMateriasComponent } from './components/alumno/asociar-materias/a
     appRoutingProviders,
     AlumnoService,
     MateriaService,
-    ProfesorService
+    ProfesorService,
+    MateriaProfesorService
   ],
   bootstrap: [AppComponent]
 })

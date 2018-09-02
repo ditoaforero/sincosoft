@@ -22,10 +22,10 @@ export class EditarAlumnoComponent implements OnInit {
 
   actualizarAlumno() {
     this._alumnoService.actualizarAlumno(this.alumno);
+    alert("Alumno Actualizado")
   }
 
   obtenerAlumno() {
-
     this._route.params.forEach((params: Params) => {
       let id = params['id'];
       this.alumno= this._alumnoService.obtenerAlumno(id);

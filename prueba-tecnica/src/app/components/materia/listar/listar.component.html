@@ -17,7 +17,7 @@
         Termino de busqueda: <span class="badge badge-success">{{busqueda}}</span>
       </div>
     </div>
-  
+
     <div class="row">
       <div class="col">
         <table class="table table-hover">
@@ -38,7 +38,7 @@
                 <div class="btn-group" role="group">
                   <button [routerLink]="['/editarMateria',materia.id]" type="button" class="btn btn-outline-primary">Editar</button>
                   <a href="#modal-{{materia.id}}" role="button" class="btn btn-outline-danger" data-toggle="modal">Eliminar</a>
-  
+
                   <!-- Modal -->
                   <div class="modal fade" id="modal-{{materia.id}}" tabindex="-1" role="dialog">
                     <div class="modal-dialog modal-dialog-centered" role="document">

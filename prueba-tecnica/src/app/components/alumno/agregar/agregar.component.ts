@@ -21,9 +21,8 @@ export class AgregarAlumnoComponent implements OnInit {
   }
 
   agregar() {
-
     /*
-    // Para el consumo con servicio Rest 
+    // Para el consumo con servicio Rest
     this._alumnoService.agregar(this.alumno).subscribe(
       result => {
         console.log('Se consumio la peticion');
@@ -32,11 +31,8 @@ export class AgregarAlumnoComponent implements OnInit {
     */
     this._alumnoService.agregar(this.alumno);
     this.alumno = new Alumno();
-
-
-
+    document.querySelector('form').reset();
+    alert("Alumno Agregado")
   }
 
 }
-
-
