@@ -35,7 +35,7 @@ export class ListarAlumnosComponent implements OnInit {
     this.alumnos= this._alumnoService.obtenerListado();
   }
 
-  eliminarAlumno(id:number){
+  eliminarAlumno(id:string){
     this._alumnoService.eliminarAlumno(id);
     this.alumnos= this._alumnoService.obtenerListado();
   }

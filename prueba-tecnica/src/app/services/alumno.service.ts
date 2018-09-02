@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators'
+import { UUID } from 'angular2-uuid';
 
 // Constantes globales
 import { GLOBAL } from './global';
@@ -14,7 +15,7 @@ export class AlumnoService {
     // Declaración de la variable que tendra el EndPoint del servicio rest
     url: string;
 
-    alumnos: Array<Alumno>=[];
+    alumnos: Array<Alumno> = [];
 
     constructor(private _http: HttpClient) {
         // Se construye la URL para las peticiones respectivas
@@ -45,50 +46,46 @@ export class AlumnoService {
         console.log('Alumno:', alumno);
 
         // Generación automatica del id
-        if (this.alumnos!=null){
-            alumno.id = this.alumnos.length +1;
-        } else {
-            alumno.id = 1;
-        }
-        
+        alumno.id = UUID.UUID();
+
 
         // Se agrega el alumno
         this.alumnos.push(alumno);
-        localStorage.setItem('alumnos',JSON.stringify(this.alumnos));
+        localStorage.setItem('alumnos', JSON.stringify(this.alumnos));
 
     }
 
-    obtenerListado(){
-        this.alumnos=[];
-        if(localStorage.getItem('alumnos')){
+    obtenerListado() {
+        this.alumnos = [];
+        if (localStorage.getItem('alumnos')) {
             this.alumnos = JSON.parse(localStorage.getItem('alumnos'));
         }
         return this.alumnos;
     }
 
-    eliminarAlumno(id:number){
-        let index:number = 0;
-        for(let i=0; i<this.alumnos.length; i++){
-            if (this.alumnos[i].id == id ){
+    eliminarAlumno(id: string) {
+        let index: number = 0;
+        for (let i = 0; i < this.alumnos.length; i++) {
+            if (this.alumnos[i].id == id) {
                 index = this.alumnos.indexOf(this.alumnos[i]);
-                this.alumnos.splice(index,1);
+                this.alumnos.splice(index, 1);
             }
         }
-        localStorage.setItem('alumnos',JSON.stringify(this.alumnos));
+        localStorage.setItem('alumnos', JSON.stringify(this.alumnos));
     }
 
-    actualizarAlumno(alumno){
+    actualizarAlumno(alumno) {
         var index = this.alumnos.indexOf(alumno);
-        if(index!==-1){
-            this.alumnos.splice(index,1,alumno);
+        if (index !== -1) {
+            this.alumnos.splice(index, 1, alumno);
         }
-        localStorage.setItem('alumnos',JSON.stringify(this.alumnos));
+        localStorage.setItem('alumnos', JSON.stringify(this.alumnos));
     }
 
-    obtenerAlumno(id:number){
-        console.log('Llego a obtener alumno',id)
-        for(let i=0; i<this.alumnos.length; i++){
-            if (this.alumnos[i].id == id ){
+    obtenerAlumno(id: string) {
+        console.log('Llego a obtener alumno', id)
+        for (let i = 0; i < this.alumnos.length; i++) {
+            if (this.alumnos[i].id == id) {
                 return this.alumnos[i];
             }
         }

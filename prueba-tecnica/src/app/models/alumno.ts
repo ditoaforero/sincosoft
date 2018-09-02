@@ -2,7 +2,9 @@ import { Materia } from "./materia";
 
 export class Alumno {
 
-    id:number=0;
+    id:string=null;
+    tipoDocumento:string=null;
+    numeroDocumento:number=null;
     nombre:string=null;
     primerApellido:string=null;
     segundoApellido:string=null;

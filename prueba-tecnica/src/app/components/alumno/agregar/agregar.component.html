@@ -9,6 +9,26 @@
     <div class="col">
       <form (ngSubmit)="agregar()" class="needs-validation" #forma="ngForm" novalidate>
         <div class="form-group row">
+          <label class="col-3 col-sm-2 col-form-label">Tipo de documento</label>
+          <div class="col-9 col-sm-10">
+            <input class="form-control" [ngClass]="{'is-invalid': tipoDocumento.errors && (tipoDocumento.dirty || tipoDocumento.touched)}"
+              type="text" name="tipoDocumento" [(ngModel)]="alumno.tipoDocumento" required #tipoDocumento="ngModel">
+            <div *ngIf="tipoDocumento.errors?.required" class="invalid-feedback">
+              Este campo es requerido
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-3 col-sm-2 col-form-label">Número de documento</label>
+            <div class="col-9 col-sm-10">
+              <input class="form-control" [ngClass]="{'is-invalid': numeroDocumento.errors && (numeroDocumento.dirty || numeroDocumento.touched)}"
+                type="text" name="numeroDocumento" [(ngModel)]="alumno.numeroDocumento" required #numeroDocumento="ngModel">
+              <div *ngIf="numeroDocumento.errors?.required" class="invalid-feedback">
+                Este campo es requerido
+              </div>
+            </div>
+          </div>
+        <div class="form-group row">
           <label class="col-3 col-sm-2 col-form-label">Nombres</label>
           <div class="col-9 col-sm-10">
             <input class="form-control" [ngClass]="{'is-invalid': nombre.errors && (nombre.dirty || nombre.touched)}" type="text" name="nombre"
@@ -36,6 +56,16 @@
               name="apellido02" [(ngModel)]="alumno.segundoApellido" #apellido02="ngModel">
           </div>
         </div>
+        <div class="form-group row">
+            <label class="col-3 col-sm-2 col-form-label">Curso</label>
+            <div class="col-9 col-sm-10">
+              <input class="form-control" [ngClass]="{'is-invalid': curso.errors && (curso.dirty)}" type="text" name="curso"
+                [(ngModel)]="alumno.curso" required #curso="ngModel">
+              <div *ngIf="curso.errors?.required" class="invalid-feedback">
+                Este campo es requerido
+              </div>
+            </div>
+          </div>
         <div class="form-group row justify-content-center">
           <div class="input-group col-12 col-sm-3 mt-1">
             <button type="submit" [disabled]='!forma.valid' class="btn btn-primary btn-block">
