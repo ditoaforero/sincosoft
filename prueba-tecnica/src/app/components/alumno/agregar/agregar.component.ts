@@ -37,11 +37,6 @@ export class AgregarAlumnoComponent implements OnInit {
 
   }
 
-  getSelectedValue(event: any) {
-    console.log('Selected value');
-    console.log(event);
-  }
-
 }
 
 
